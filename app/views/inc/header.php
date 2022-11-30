@@ -24,7 +24,7 @@
             </ul>
             <?php if(isset($_SESSION['id'])) :?>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo ' '.$_SESSION['name'] ?></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo ' Welcome '.$_SESSION['name'] ?></a></li>
                     <li><a href="<?php echo URLROOT.'/Users/logout'?>"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
                 </ul>
             <?php else :?>
