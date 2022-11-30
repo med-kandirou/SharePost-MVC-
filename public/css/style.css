@@ -1,0 +1,16 @@
+
+.title{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.navbar{
+    border-radius: 0%;
+}
+.form-control{
+    height: 50px;
+}
+#actual{
+    display: flex;
+    justify-content: space-around;
+}
