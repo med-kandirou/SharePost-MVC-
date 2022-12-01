@@ -6,7 +6,7 @@ class Post extends database{
 
 
     public function getpost(){
-        $sql = "SELECT u.id, u.name, p.`title`, p.`body`, p.`created_at` FROM posts p inner join users u on u.id=p.user_id";
+        $sql = "SELECT u.id, u.name, p.`title`, p.`body`, p.`created_at` FROM posts p inner join users u on u.id=p.user_id order by p.id desc";
         $stmt=$this->openConnection()->query($sql);
         $data = $stmt->fetchAll();
         return $data;

@@ -4,7 +4,7 @@
 <div class="container">
     <div id="actual">
         <h3>Actualités</h3>
-        <a href="<?= URLROOT.'/Posts/add' ?>"><button type="button" class="btn btn-primary">Add post</button></a> 
+        <a href="<?= URLROOT.'/Posts/add' ?>"><button type="button" class="btn btn-primary form-control">Add post</button></a> 
     </div>
    
         <?php foreach($data as $post) : ?>

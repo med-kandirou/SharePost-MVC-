@@ -5,10 +5,18 @@
 .form-control{
     height: 50px;
 }
+.title{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 #actual{
     display: flex;
-    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
     margin-bottom: 30px;
+    justify-content: space-between;
 }
 .posts{
     display: block;

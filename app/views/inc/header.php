@@ -18,16 +18,20 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">SharePosts</a>
             </div>
-            <ul class="nav navbar-nav ">
-                <li><a class="nav-link" href="<?php echo URLROOT.'/Pages/'?>">Home</a></li>
-                <li><a href="<?php echo URLROOT.'/Pages/about'?>">About</a></li>
-            </ul>
             <?php if(isset($_SESSION['id'])) :?>
+                <ul class="nav navbar-nav ">
+                    <li><a class="nav-link" href="<?php echo URLROOT.'/Posts/'?>">Home</a></li>
+                    <li><a href="<?php echo URLROOT.'/Posts/about'?>">About</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span><?php echo ' Welcome '.$_SESSION['name'] ?></a></li>
                     <li><a href="<?php echo URLROOT.'/Users/logout'?>"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
                 </ul>
             <?php else :?>
+                <ul class="nav navbar-nav ">
+                    <li><a class="nav-link" href="<?php echo URLROOT.'/Pages/'?>">Home</a></li>
+                    <li><a href="<?php echo URLROOT.'/Pages/about'?>">About</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="<?php echo URLROOT.'/Pages/signIn'?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="<?php echo URLROOT.'/Pages/login' ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
