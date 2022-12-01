@@ -6,14 +6,18 @@
         <h3>Actualités</h3>
         <a href="<?= URLROOT.'/Posts/add' ?>"><button type="button" class="btn btn-primary">Add post</button></a> 
     </div>
-    <div class="posts">
-        <h2>title</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa et, maxime quis inventore voluptatem ea quas nostrum temporibus magnam, quos officia, in tempore! A neque illum quos in iusto culpa.</h2>
-        <p class="written">writen bu kandirou at 2022/01/23</p>
-        <div class="form-group">
-        <button type="button" class="btn btn-info form-control" >MORE</button>
-        </div>
-    </div>
+   
+        <?php foreach($data as $post) : ?>
+            <div class="posts">
+                <h2><?= $post['title'] ?></h2>
+                <p><?= $post['body'] ?></h2><br>
+                <p class="written">writen by <?= $post['name'] ?> At <?= $post['created_at'] ?></p><br>
+                <div class="form-group">
+                    <button type="button" class="btn btn-info form-control" >MORE</button>
+                </div>
+            </div><br>
+        <?php endforeach;  ?>
+    
 </div>
 
 
