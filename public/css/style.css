@@ -1,9 +1,4 @@
 
-.title{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    text-align: center;
-}
 .navbar{
     border-radius: 0%;
 }
@@ -12,5 +7,17 @@
 }
 #actual{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.posts{
+    padding: 8px;
+    border: 1px solid rgb(199, 199, 199);
+    width: 80%;
+    margin-left: 10%;
+}
+
+.written{
+    
+    background-color: #e7f2f4;
 }

@@ -7,7 +7,10 @@ class Posts extends Controller{
 
     //display pages
     public function index(){
-        $this->view('posts/index');
+        //get posts
+        $data=$this->postModel->getpost();
+        //display data in view index
+        $this->view('posts/index',$data);
     }
 
     public function about(){
