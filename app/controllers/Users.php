@@ -4,7 +4,6 @@ class Users extends Controller{
 
     function __construct() {
         $this->userModel=$this->model('User');
-        
     }
 
     public function signin(){
@@ -15,9 +14,8 @@ class Users extends Controller{
     }
 
     public function login(){
-
         if($_SERVER['REQUEST_METHOD']=='POST'){
-
+            $count=0;
             extract($_POST);
             $data=[
                 'email'=>$email,
@@ -26,14 +24,19 @@ class Users extends Controller{
                 'pass_err'=>'',
             ];
             if(empty($data['email'])){
-                $data['email_err'] = 'Pleae enter Email';
+                $data['email_err'] = '* Email is required';
+                $count++;
             }
-            // Validate Name
             if(empty($data['pass'])){
-                $data['pass_err'] = 'Pleae enter Password';
+                $data['pass_err'] = '* Password is required';
+                $count++;
             }
-            $this->view('login',$data);
-            //$this->userModel->login($email,$pass);
+            if($count!=0){
+                $this->view('login',$data);
+            }
+            else{
+                $this->userModel->login($email,$pass);
+            }
         }
         else{
             $data=[

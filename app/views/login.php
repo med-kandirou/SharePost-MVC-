@@ -1,4 +1,5 @@
 <?php require_once APPROOT.'/views/inc/header.php';
+  extract($data);
 ?>
 
 <h1 class="title">Login</h1>
@@ -7,13 +8,13 @@
     <form action="../Users/login" method="POST" >
       <div class="form-group">
         <label for="email">Email address:</label>
-        <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control">
-        <p class="error"><?= $data['email_err'];?></p>
+        <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control" value="<?php if(!empty($email)) echo $email;?>">
+        <p class="error"><?php if(!empty($email_err)) echo $email_err; ?></p>
       </div><br>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" name="pass" placeholder="Password" class="form-control">
-        <p class="error"><?= $data['pass_err']; ?></p>
+        <input type="password" name="pass" placeholder="Password" class="form-control" value="<?php if(!empty($pass)) echo $pass; ?>">
+        <p class="error"><?php if(!empty($pass_err)) echo $pass_err; ?></p>
       </div><br>
       <div class="form-group">
         <button type="submit" class="btn btn-success form-control">Login</button>

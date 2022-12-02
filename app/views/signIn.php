@@ -1,4 +1,8 @@
-<?php require_once APPROOT.'/views/inc/header.php'; ?>
+<?php require_once APPROOT.'/views/inc/header.php'; 
+extract($data);
+
+
+?>
 
 <h1 class="title">Create an account</h1>
 
@@ -6,12 +10,12 @@
     <form action="../Users/signin" method="POST">
         <div class="form-group">
             <label for="email">Name :</label>
-            <input type="text" name="nom" placeholder="your name"  class="form-control" value="<?php echo $data['name']; ?>">
-            <p class="error"><?php if(empty($data['name'])){echo $data['name'];} ?></p>
+            <input type="text" name="nom" placeholder="your name"  class="form-control" value="value="<?php if(empty($nom)) echo $nom;?>">
+            <p class="error"><?php if(empty($nom_err)) echo $nom;?></p>
         </div><br>
         <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control" value="<?php echo $data['email']; ?>">
+            <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control" value="<?php if(empty($email)) echo $email;?>">
             <p class="error"><?php if(empty($data['email'])){echo '* Email is required';} ?></p>
         </div><br>
         <div class="form-group">
