@@ -1,4 +1,5 @@
-<?php require_once APPROOT.'/views/inc/header.php';?>
+<?php require_once APPROOT.'/views/inc/header.php';
+?>
 
 <h1 class="title">Login</h1>
 
@@ -7,12 +8,12 @@
       <div class="form-group">
         <label for="email">Email address:</label>
         <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control">
-        <p class="error"><?php if(!empty($data['email'])){echo '* '.$data['email'];} ?></p>
+        <p class="error"><?= $data['email_err'];?></p>
       </div><br>
       <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" name="pass" placeholder="Password" class="form-control">
-        <p class="error"><?php if(!empty($data['pass'])){echo '* '.$data['pass'];} ?></p>
+        <p class="error"><?= $data['pass_err']; ?></p>
       </div><br>
       <div class="form-group">
         <button type="submit" class="btn btn-success form-control">Login</button>
