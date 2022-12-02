@@ -9,7 +9,15 @@ class Users extends Controller{
     public function signin(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             extract($_POST);
-            $this->userModel->signin($nom,$email,$pass);
+            if(empty($nom)){
+                echo "nom vide";
+            }
+            if(empty($email)){
+                echo "nom vide";
+            }
+
+            
+            //$this->userModel->signin($nom,$email,$pass);
         }
     }
 
