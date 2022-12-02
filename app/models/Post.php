@@ -3,8 +3,6 @@
 class Post extends database{
     function __construct() {}
 
-
-
     public function getpost(){
         $sql = "SELECT u.id, u.name, p.`title`, p.`body`, p.`created_at` FROM posts p inner join users u on u.id=p.user_id order by p.id desc";
         $stmt=$this->openConnection()->query($sql);

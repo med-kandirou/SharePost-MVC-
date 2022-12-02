@@ -30,3 +30,7 @@
     width: max-content;
     background-color: #e7f2f4;
 }
+
+.form-group .error{
+    color:red;
+}

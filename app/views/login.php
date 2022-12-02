@@ -7,10 +7,12 @@
       <div class="form-group">
         <label for="email">Email address:</label>
         <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control">
+        <p class="error"><?php if(!empty($data['email'])){echo '* '.$data['email'];} ?></p>
       </div><br>
       <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" name="pass" placeholder="Password" class="form-control">
+        <p class="error"><?php if(!empty($data['pass'])){echo '* '.$data['pass'];} ?></p>
       </div><br>
       <div class="form-group">
         <button type="submit" class="btn btn-success form-control">Login</button>
