@@ -1,7 +1,5 @@
 <?php require_once APPROOT.'/views/inc/header.php'; 
 extract($data);
-
-
 ?>
 
 <h1 class="title">Create an account</h1>
@@ -10,23 +8,23 @@ extract($data);
     <form action="../Users/signin" method="POST">
         <div class="form-group">
             <label for="email">Name :</label>
-            <input type="text" name="nom" placeholder="your name"  class="form-control" value="value="<?php if(empty($nom)) echo $nom;?>">
-            <p class="error"><?php if(empty($nom_err)) echo $nom;?></p>
+            <input type="text" name="nom" placeholder="your name"  class="form-control" value="value="<?php if(!empty($nom)) echo $nom;?>">
+            <p class="error"><?php if(!empty($nom_err)) echo $nom;?></p>
         </div><br>
         <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control" value="<?php if(empty($email)) echo $email;?>">
-            <p class="error"><?php if(empty($data['email'])){echo '* Email is required';} ?></p>
+            <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control" value="<?php if(!empty($email)) echo $email;?>">
+            <p class="error"><?php if(!empty($data['email'])){echo '* Email is required';} ?></p>
         </div><br>
         <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" name="pass" placeholder="Password" class="form-control" value="<?php echo $data['pass']; ?>">
-            <p class="error"><?php if(empty($data['pass'])){echo '* Password is required';} ?></p>
+            <input type="password" name="pass" placeholder="Password" class="form-control" value="<?php if(!empty($pass)) echo $pass;?>">
+            <p class="error"><?php if(!empty($data['pass'])){echo '* Password is required';} ?></p>
         </div><br>
         <div class="form-group">
             <label for="pwd">Confirm password:</label>
-            <input type="password" name="Cpass" placeholder="Confirm password" class="form-control" value="<?php echo $data['Cpass']; ?>">
-            <p class="error"><?php if(empty($data['Cpass'])){echo '* Confirmation password is required';} ?></p>
+            <input type="password" name="Cpass" placeholder="Confirm password" class="form-control" value="<?php if(!empty($Cpass)) echo $Cpass;?>">
+            <p class="error"><?php if(!empty($data['Cpass'])){echo '* Confirmation password is required';} ?></p>
         </div><br>
         <div class="form-group">
             <button type="submit" class="btn btn-success form-control">Sign up</button>
