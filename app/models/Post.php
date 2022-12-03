@@ -20,10 +20,7 @@ class Post extends database{
         $stmt->bindParam(':date', $date);
 
         if($stmt->execute()){
-           echo "ajouter succes";
-        }
-        else{
-            echo "no worked";
+           return true;
         }
     }
 }

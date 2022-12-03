@@ -2,6 +2,11 @@
 
 
 <div class="container">
+    <?php if(isset($data['isAdeed'])) :?>
+        <div class="alert alert-primary" role="alert">
+            Post adeed successfully
+        </div>
+    <?php endif ;?>
     <div id="actual">
         <h3>Actualités</h3>
         <a href="<?= URLROOT.'/Posts/add' ?>"><button type="button" class="btn btn-primary form-control">Add post</button></a> 

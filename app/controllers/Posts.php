@@ -25,7 +25,12 @@ class Posts extends Controller{
     public function addpost(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             extract($_POST);
-            $this->postModel->addpost($_SESSION['id'],$title,$body);
+            $add=[
+                'isAdeed'=>''
+            ];
+            if($this->postModel->addpost($_SESSION['id'],$title,$body)){
+                $this->view('posts/index',$add);
+            };
         }
     }
 }
