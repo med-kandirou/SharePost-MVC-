@@ -18,11 +18,16 @@
       </div><br>
       <div class="form-group">
         <button type="submit" class="btn btn-success form-control">Login</button>
-      </div><br>
+      </div>
+      <?php  if(!empty($isTrue)) :?>
+        <div class="alert alert-danger" role="alert">
+          Email or password invalid
+        </div>
+      <?php  endif ;?>
       <div class="form-group">
             <a href="<?php echo URLROOT.'/Pages/signIn' ?>">Don't have an account yet ?</a>
-        </div><br>
-    
+      </div><br>
+      
     </form>
 </div>
 

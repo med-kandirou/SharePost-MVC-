@@ -24,8 +24,9 @@ class Users extends Controller{
                 'email_err'=>'',
                 'password_err'=>'',
                 'confirmation_err'=>'',
+
             ];
-            $errors = array("name", "email", "password",'confirmation');
+            $errors = array("name", "email", "password");
             $count_err=0;
             for($i=0;$i<count($errors);$i++){
                 if($this->geterror($data,$errors[$i])==1){
@@ -33,11 +34,16 @@ class Users extends Controller{
                     $count_err++;
                 }
             }
+            if($data['password']!=$data['confirmation']){
+                $data['confirmation_err']="Confirmation invalid";
+                $count_err++;
+            }
+            
             if($count_err>0){
                 $this->view('signin',$data);
             }
             else{
-                $this->userModel->signin($nom,$email,$pass);
+                $this->userModel->signin($name,$email,$password);
             }   
         }
     }
@@ -50,6 +56,7 @@ class Users extends Controller{
                 'password'=>$password,
                 'email_err'=>'',
                 'password_err'=>'',
+                'isTrue'=>''
             ];
             $errors = array("email", "password");
             $count_err=0;
@@ -63,7 +70,15 @@ class Users extends Controller{
                 $this->view('login',$data);
             }
             else{
-                $this->userModel->login($email,$pass);
+                $res=$this->userModel->login($email,$password);
+                if($res==0){
+                    $data['isTrue']="invalid";
+                    $this->view('login',$data);
+                }
+                else{
+                    header("location:".URLROOT.'/posts/'."");
+                    exit();
+                }
             }
         }
     }

@@ -29,10 +29,10 @@ class User extends database{
             $_SESSION['name']=$res['name'];
             $_SESSION['email']=$res['email'];
             $_SESSION['password']=$res['password'];
-            header("location:../Posts/");
+            return 1;
         }
         else{
-            header("location:../Pages/login?etat=2");
+            return 0;
         }
     }
 
