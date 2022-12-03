@@ -6,10 +6,39 @@ class Users extends Controller{
         $this->userModel=$this->model('User');
     }
 
+    function geterror($data,$field)
+    {
+        if(empty($data[''.$field])){
+            return 1;
+        }
+    }
     public function signin(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             extract($_POST);
-            $this->userModel->signin($nom,$email,$pass);
+            $data=[
+                'name'=>trim($name),
+                'email'=>trim($email),
+                'password'=>trim($password),
+                'confirmation'=>trim($confirmation),
+                'name_err'=>'',
+                'email_err'=>'',
+                'password_err'=>'',
+                'confirmation_err'=>'',
+            ];
+            $errors = array("name", "email", "password",'confirmation');
+            $count_err=0;
+            for($i=0;$i<count($errors);$i++){
+                if($this->geterror($data,$errors[$i])==1){
+                    $data[$errors[$i].'_err']='* '.$errors[$i].' is required';
+                    $count_err++;
+                }
+            }
+            if($count_err>0){
+                $this->view('signin',$data);
+            }
+            else{
+                $this->userModel->signin($nom,$email,$pass);
+            }   
         }
     }
 
@@ -23,29 +52,13 @@ class Users extends Controller{
                 'email_err'=>'',
                 'pass_err'=>'',
             ];
-            if(empty($data['email'])){
-                $data['email_err'] = '* Email is required';
-                $count++;
-            }
-            if(empty($data['pass'])){
-                $data['pass_err'] = '* Password is required';
-                $count++;
-            }
+
             if($count!=0){
                 $this->view('login',$data);
             }
             else{
                 $this->userModel->login($email,$pass);
             }
-        }
-        else{
-            $data=[
-                'email'=>'',
-                'pass'=>'',
-                'email_err'=>'',
-                'pass_err'=>'',
-            ];
-            $this->view('login',$data);
         }
     }
 

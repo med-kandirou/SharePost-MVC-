@@ -8,23 +8,23 @@ extract($data);
     <form action="../Users/signin" method="POST">
         <div class="form-group">
             <label for="email">Name :</label>
-            <input type="text" name="nom" placeholder="your name"  class="form-control" value="value="<?php if(!empty($nom)) echo $nom;?>">
-            <p class="error"><?php if(!empty($nom_err)) echo $nom;?></p>
+            <input type="text" name="name" placeholder="your name"  class="form-control" value="<?php if(!empty($name)) echo $name;?>">
+            <p class="error"><?php if(!empty($name_err)) echo ucwords($name_err);?></p>
         </div><br>
         <div class="form-group">
             <label for="email">Email address:</label>
             <input type="email" name="email" placeholder="exemple@gmail.com" class="form-control" value="<?php if(!empty($email)) echo $email;?>">
-            <p class="error"><?php if(!empty($data['email'])){echo '* Email is required';} ?></p>
+            <p class="error"><?php if(!empty($email_err)){echo ucwords($email_err) ;} ?></p>
         </div><br>
         <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" name="pass" placeholder="Password" class="form-control" value="<?php if(!empty($pass)) echo $pass;?>">
-            <p class="error"><?php if(!empty($data['pass'])){echo '* Password is required';} ?></p>
+            <input type="password" name="password" placeholder="Password" class="form-control" value="<?php if(!empty($password)) echo $password;?>">
+            <p class="error"><?php if(!empty($password_err)){echo ucwords($password_err) ;} ?></p>
         </div><br>
         <div class="form-group">
             <label for="pwd">Confirm password:</label>
-            <input type="password" name="Cpass" placeholder="Confirm password" class="form-control" value="<?php if(!empty($Cpass)) echo $Cpass;?>">
-            <p class="error"><?php if(!empty($data['Cpass'])){echo '* Confirmation password is required';} ?></p>
+            <input type="password" name="confirmation" placeholder="Confirm password" class="form-control" value="<?php if(!empty($confirmation)) echo $confirmation;?>">
+            <p class="error"><?php if(!empty($confirmation_err)){echo ucwords($confirmation_err) ;} ?></p>
         </div><br>
         <div class="form-group">
             <button type="submit" class="btn btn-success form-control">Sign up</button>

@@ -33,7 +33,7 @@
                     <li><a href="<?php echo URLROOT.'/Pages/about'?>">About</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="<?php echo URLROOT.'/Pages/signIn'?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="<?php echo URLROOT.'/Pages/signin'?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <li><a href="<?php echo URLROOT.'/Pages/login' ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             <?php endif ;?>

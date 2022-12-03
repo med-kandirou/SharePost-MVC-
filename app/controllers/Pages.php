@@ -12,7 +12,7 @@ class Pages extends Controller{
     }
 
     public function signin(){
-        $this->view('signIn');
+        $this->view('signin');
     }
 
     public function about(){
