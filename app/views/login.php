@@ -13,8 +13,8 @@
       </div><br>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" name="pass" placeholder="Password" class="form-control" value="<?php if(!empty($pass)) echo $pass; ?>">
-        <p class="error"><?php if(!empty($pass_err)) echo $pass_err; ?></p>
+        <input type="password" name="password" placeholder="Password" class="form-control" value="<?php if(!empty($password)) echo $password; ?>">
+        <p class="error"><?php if(!empty($password_err)) echo $password_err; ?></p>
       </div><br>
       <div class="form-group">
         <button type="submit" class="btn btn-success form-control">Login</button>

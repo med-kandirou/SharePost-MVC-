@@ -44,16 +44,22 @@ class Users extends Controller{
 
     public function login(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $count=0;
             extract($_POST);
             $data=[
                 'email'=>$email,
-                'pass'=>$pass,
+                'password'=>$password,
                 'email_err'=>'',
-                'pass_err'=>'',
+                'password_err'=>'',
             ];
-
-            if($count!=0){
+            $errors = array("email", "password");
+            $count_err=0;
+            for($i=0;$i<count($errors);$i++){
+                if($this->geterror($data,$errors[$i])==1){
+                    $data[$errors[$i].'_err']='* '.$errors[$i].' is required';
+                    $count_err++;
+                }
+            }
+            if($count_err!=0){
                 $this->view('login',$data);
             }
             else{
