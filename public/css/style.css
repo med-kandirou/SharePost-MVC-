@@ -34,3 +34,7 @@
 .form-group .error{
     color:red;
 }
+#home{
+    text-align: center;
+    background-color: rgb(219, 219, 219);
+}
