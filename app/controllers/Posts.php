@@ -8,7 +8,6 @@ class Posts extends Controller{
     //display pages
     public function index(){
         $posts=$this->postModel->getpost();
-
         //display data in view index
         $this->view('posts/index',$posts);
     }
@@ -25,13 +24,9 @@ class Posts extends Controller{
     public function addpost(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             extract($_POST);
-            $data=[
-                'posts'=>$this->postModel->getpost(),
-                'isAdeed'=>''
-            ];
-            if($this->postModel->addpost($_SESSION['id'],$title,$body)){
-                $this->view('posts/index',$data);
-            };
+            //$data=$this->postModel->getpost();
+            $this->postModel->addpost($_SESSION['id'],$title,$body);
+            $this->view('posts/index');
         }
     }
 }

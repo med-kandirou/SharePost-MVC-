@@ -1,11 +1,4 @@
-<?php require_once APPROOT.'/views/inc/header.php';
-
-// echo '<pre>';
-// var_dump($data['posts']);
-// echo '<pre>';
-?>
-
-
+<?php require_once APPROOT.'/views/inc/header.php';?>
 <div class="container">
    
     <div id="actual">
