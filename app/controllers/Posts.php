@@ -7,10 +7,10 @@ class Posts extends Controller{
 
     //display pages
     public function index(){
-        //get posts
-        $data=$this->postModel->getpost();
+        $posts=$this->postModel->getpost();
+
         //display data in view index
-        $this->view('posts/index',$data);
+        $this->view('posts/index',$posts);
     }
 
     public function about(){
@@ -25,11 +25,12 @@ class Posts extends Controller{
     public function addpost(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             extract($_POST);
-            $add=[
+            $data=[
+                'posts'=>$this->postModel->getpost(),
                 'isAdeed'=>''
             ];
             if($this->postModel->addpost($_SESSION['id'],$title,$body)){
-                $this->view('posts/index',$add);
+                $this->view('posts/index',$data);
             };
         }
     }
