@@ -43,7 +43,10 @@ class Users extends Controller{
                 $this->view('signin',$data);
             }
             else{
-                $this->userModel->signin($name,$email,$password);
+                if($this->userModel->signin($name,$email,$password)){
+                    header('location:'.URLROOT.'/Pages/login');
+                    exit();
+                };
             }   
         }
     }

@@ -10,11 +10,7 @@ class User extends database{
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':mdp', $pass);
         if($stmt->execute()){
-            header('location:'.URLROOT.'/Pages/login');
-            exit();
-        }
-        else{
-            echo "no worked";
+            return true;
         }
     }
     public function login($email,$pass){
