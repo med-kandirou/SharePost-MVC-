@@ -39,4 +39,23 @@ class Post extends database{
             return true;
         }
     }
+
+    public function getinfo($id_post){
+        $sql = "SELECT `id_p`,`title`, `body` FROM `posts` WHERE id_p=".$id_post."";
+        $stmt=$this->openConnection()->prepare($sql);
+        $stmt->bindParam(':id_post', $id_post);
+        $stmt->execute();
+        $res=$stmt->fetch();
+        return $res;
+    }
+
+    public function update($id_post,$title,$body){
+        $sql = "UPDATE `posts` SET `title`=:title,`body`=:body WHERE id_p=:id_post";
+        $stmt=$this->openConnection()->prepare($sql);
+        $stmt->bindParam(':id_post', $id_post);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':body', $body);
+        $stmt->execute();
+        return true;
+    }
 }

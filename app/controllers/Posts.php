@@ -19,6 +19,10 @@ class Posts extends Controller{
     public function add(){
         $this->view('posts/add');
     }
+    public function update_pub($id_post){
+        $data=$this->postModel->getinfo($id_post);
+        $this->view('posts/update',$data);
+    }
 
     //add post
     public function addpost(){
@@ -40,5 +44,17 @@ class Posts extends Controller{
             header('location:'.URLROOT.'/posts/');
             exit();
         }
+    }
+
+    public function update($id_post){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            extract($_POST);
+            $res=$this->postModel->update($id_post,$title,$body);
+            if($res==true){
+                header('location:'.URLROOT.'/posts/');
+                exit();
+            }
+        }
+        
     }
 }
