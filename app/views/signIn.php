@@ -1,7 +1,6 @@
 <?php require_once APPROOT.'/views/inc/header.php'; 
 extract($data);
 ?>
-
 <h1 class="title">Create an account</h1>
 
 <div class="container">

@@ -24,9 +24,9 @@ class Posts extends Controller{
     public function addpost(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             extract($_POST);
-            $data=$this->postModel->getpost();
             if($this->postModel->addpost($_SESSION['id'],$title,$body)){
-                $this->view('posts/index',$data);
+                header('location:'.URLROOT.'/posts/');
+                exit();
             }
             
         }
