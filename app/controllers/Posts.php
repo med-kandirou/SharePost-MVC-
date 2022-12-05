@@ -28,7 +28,17 @@ class Posts extends Controller{
                 header('location:'.URLROOT.'/posts/');
                 exit();
             }
-            
+        }
+    }
+    public function show($id_post){
+        $data=$this->postModel->show($id_post);
+        $this->view('posts/show',$data);  
+    }
+    public function delete($id_post){
+        $res=$this->postModel->delete_post($id_post);
+        if($res==true){
+            header('location:'.URLROOT.'/posts/');
+            exit();
         }
     }
 }

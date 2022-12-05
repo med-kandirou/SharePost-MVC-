@@ -18,14 +18,14 @@ class User extends database{
         }
     }
     public function login($email,$pass){
-        $sql = "SELECT `id`, `name`, `email`, `password` FROM `users` WHERE email=:email and password=:mdp";
+        $sql = "SELECT `id_u`, `name`, `email`, `password` FROM `users` WHERE email=:email and password=:mdp";
         $stmt=$this->openConnection()->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':mdp', $pass);
         $stmt->execute();
         if($stmt->rowCount()==1){
             $res=$stmt->fetch(PDO::FETCH_ASSOC);
-            $_SESSION['id']=$res['id'];
+            $_SESSION['id']=$res['id_u'];
             $_SESSION['name']=$res['name'];
             $_SESSION['email']=$res['email'];
             $_SESSION['password']=$res['password'];

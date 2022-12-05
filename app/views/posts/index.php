@@ -11,7 +11,7 @@
                 <p><?= $post['body'] ?></h2><br>
                 <p class="written">writen by <?= $post['name'] ?> At <?= $post['created_at'] ?></p><br>
                 <div class="form-group">
-                    <a href="<?= URLROOT.'/Posts/show/'.$post['id'].'' ?>"><button type="button" value= class="btn btn-info form-control" >MORE</button></a>
+                    <a href="<?= URLROOT.'/Posts/show/'.$post['id_p'].'' ?>"><button type="button" value= class="btn btn-info form-control" >MORE</button></a>
                 </div>
             </div><br>
         <?php endforeach;  ?>

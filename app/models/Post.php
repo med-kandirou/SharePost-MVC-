@@ -4,7 +4,7 @@ class Post extends database{
     function __construct() {}
 
     public function getpost(){
-        $sql = "SELECT u.id, u.name, p.`title`, p.`body`, p.`created_at` FROM posts p, users u WHERE u.id=p.user_id order by p.id desc";
+        $sql = "SELECT p.id_p , u.name, p.`title`, p.`body`, p.`created_at` FROM posts p, users u WHERE u.id_u=p.user_id order by p.id_p desc";
         $stmt=$this->openConnection()->query($sql);
         $data = $stmt->fetchAll();
         return $data;
@@ -21,6 +21,22 @@ class Post extends database{
 
         if($stmt->execute()){
            return true;
+        }
+    }
+    public function show($id_post){
+        $sql = "SELECT p.id_p ,u.id_u, u.name, p.`title`, p.`body`, p.`created_at` FROM posts p, users u WHERE p.user_id=u.id_u and p.id_p=:id_post";
+        $stmt=$this->openConnection()->prepare($sql);
+        $stmt->bindParam(':id_post', $id_post);
+        $stmt->execute();
+        $res=$stmt->fetch();
+        return $res;
+    }
+    public function delete_post($id_post){
+        $sql = "DELETE FROM `posts` WHERE id_p=:id_post";
+        $stmt=$this->openConnection()->prepare($sql);
+        $stmt->bindParam(':id_post', $id_post);
+        if($stmt->execute()){
+            return true;
         }
     }
 }
